@@ -1,9 +1,9 @@
-import { Card, Modal, Button } from 'react-bootstrap'
+import { Card, Modal, Button, Container } from 'react-bootstrap'
 import axios from 'axios'
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 
-function Cards({image, name, description, id}) {
+function Cards({image, name, description, id, type}) {
     
     
 
@@ -25,15 +25,18 @@ function Cards({image, name, description, id}) {
         
         <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}
             size="md"
-            aria-labelledby="contained-modal-title-vcenter"
+            aria-labelledby="contained-modal-title-vcenter"qq
             centered >
 
         <Modal.Header closeButton>
-            <Modal.Title>{name}</Modal.Title>
+            <Container>
+                <Modal.Title style={{fontSize: '25px',  }} >{name}</Modal.Title>
+                <Card.Link style={{fontSize: '17px'}} >Type: {type}</Card.Link>
+            </Container>
         </Modal.Header>
         <Modal.Body>
             <Card.Img src={image} variant="top"/>
-            <Card.Text>{description}</Card.Text>
+            <Card.Text style={{fontSize: '18px', textAlign: "center", marginTop: '40px'}} >{description}</Card.Text>
             
         </Modal.Body>
         <Modal.Footer>
